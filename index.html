@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ishq E Ghazipur | Luxury Restaurant & Cafe</title>
+
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================
+   GLOBAL DESIGN
+===================== */
+
+:root {
+  --gold: #d9ae64;
+  --gold-light: #f3d69e;
+  --black: #100e0b;
+  --surface: #1b1813;
+  --white: #fffaf1;
+  --muted: #aaa49a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =====================
+   HEADER
+===================== */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15,13,10,.97);
+  border-bottom: 1px solid #423729;
+  backdrop-filter: blur(15px);
+}
+
+.navbar {
+  max-width: 1400px;
+  margin: auto;
+  min-height: 86px;
+  padding: 12px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  transform: rotate(45deg);
+}
+
+.brand-icon span {
+  transform: rotate(-45deg);
+}
+
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+.brand-sub {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: white;
+  margin-top: 3px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links button {
+  background: transparent;
+  border: none;
+  color: #e6e0d6;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.nav-links button:hover,
+.nav-links button.active {
+  color: var(--gold);
+}
+
+.nav-book {
+  background: var(--gold);
+  border: none;
+  color: #17110a;
+  padding: 13px 19px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid #66543a;
+  background: transparent;
+  color: var(--gold);
+  font-size: 24px;
+  padding: 5px 12px;
+}
+
+/* =====================
+   PAGE SYSTEM
+===================== */
+
+.page {
+  display: none;
+  animation: pageIn .45s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================
+   BUTTONS
+===================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #17110a;
+  border: 1px solid var(--gold);
+  padding: 15px 24px;
+  font-weight: 700;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: #17110a;
+}
+
+/* =====================
+   HOME HERO
+===================== */
+
+.hero {
+  min-height: 690px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 90px 9%;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.91) 0%,rgba(0,0,0,.64) 48%,rgba(0,0,0,.12) 100%),
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=90') center/cover;
+}
+
+.hero-content {
+  max-width: 680px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 5px;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px,7vw,88px);
+  line-height: 1.08;
+  margin: 25px 0;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  display: block;
+  font-style: italic;
+}
+
+.hero p {
+  max-width: 520px;
+  color: #ded8ce;
+  line-height: 2;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  background: rgba(13,11,9,.85);
+  border-top: 1px solid #6c5430;
+}
+
+.hero-stat {
+  text-align: center;
+  padding: 22px 10px;
+  border-right: 1px solid #493c2a;
+}
+
+.hero-stat strong {
+  display: block;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+
+.hero-stat small {
+  color: #c4bdb1;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* =====================
+   COMMON SECTIONS
+===================== */
+
+.section {
+  padding: 90px 7%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-heading small {
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 11px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px,5vw,49px);
+  margin-top: 12px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.gold-line {
+  width: 65px;
+  height: 2px;
+  background: var(--gold);
+  margin: 18px auto;
+}
+
+/* =====================
+   FEATURE SECTION
+===================== */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  background: #17140f;
+}
+
+.feature {
+  padding: 32px;
+  text-align: center;
+  border: 1px solid #403525;
+  background: #1d1913;
+}
+
+.feature-icon {
+  font-size: 34px;
+  color: var(--gold);
+}
+
+.feature h3 {
+  font-family: 'Playfair Display', serif;
+  margin: 14px 0 8px;
+}
+
+.feature p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* =====================
+   FOOD MENU
+===================== */
+
+.menu-page {
+  min-height: 650px;
+}
+
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.menu-tabs button {
+  background: transparent;
+  border: 1px solid #66543a;
+  color: white;
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+.menu-tabs button.active,
+.menu-tabs button:hover {
+  background: var(--gold);
+  color: black;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.food-card {
+  background: var(--surface);
+  border: 1px solid #393126;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.food-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+}
+
+.food-image {
+  height: 235px;
+  position: relative;
+  overflow: hidden;
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.food-card:hover .food-image img {
+  transform: scale(1.08);
+}
+
+.food-label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--gold);
+  color: black;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 7px 12px;
+}
+
+.food-info {
+  padding: 20px;
+}
+
+.food-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+}
+
+.food-info p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 9px 0 17px;
+}
+
+.food-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food-price {
+  color: var(--gold);
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.order-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 9px 13px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.order-btn:hover {
+  background: var(--gold);
+  color: black;
+}
+
+/* =====================
+   GALLERY
+===================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  background: #29241c;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 35px 18px 17px;
+  background: linear-gradient(transparent,#000d);
+  font-family: 'Playfair Display',serif;
+  font-size: 20px;
+}
+
+/* =====================
+   ABOUT PAGE
+===================== */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: 470px;
+  object-fit: cover;
+}
+
+.about-content h2 {
+  font-family: 'Playfair Display',serif;
+  font-size: 43px;
+  color: var(--gold);
+  margin: 17px 0;
+}
+
+.about-content p {
+  color: #c3bcb1;
+  font-size: 13px;
+  line-height: 2.2;
+  margin-bottom: 18px;
+}
+
+/* =====================
+   BOOKING PAGE
+===================== */
+
+.booking-background {
+  padding: 75px 7%;
+  background:
+    linear-gradient(#0b0908dd,#0b0908ee),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+
+.booking-container {
+  max-width: 720px;
+  margin: auto;
+  padding: 42px;
+  background: #1b1813;
+  border: 1px solid #8a693a;
+}
+
+.booking-container h2 {
+  font-family: 'Playfair Display',serif;
+  text-align: center;
+  font-size: 36px;
+  color: var(--gold);
+}
+
+.booking-container > p {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 12px 0 30px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  color: var(--gold-light);
+  margin-bottom: 9px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 13px;
+  background: #100e0b;
+  border: 1px solid #51432f;
+  color: white;
+  outline: none;
+  font-size: 12px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-group.full {
+  grid-column: 1/-1;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 85px;
+}
+
+.booking-submit {
+  width: 100%;
+  margin-top: 23px;
+}
+
+/* =====================
+   CONTACT PAGE
+===================== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.contact-card {
+  background: #1d1913;
+  border: 1px solid #493b28;
+  padding: 35px;
+}
+
+.contact-card h3 {
+  color: var(--gold);
+  font-family: 'Playfair Display',serif;
+  font-size: 25px;
+  margin-bottom: 22px;
+}
+
+.contact-row {
+  display: flex;
+  gap: 14px;
+  margin: 20px 0;
+  align-items: flex-start;
+}
+
+.contact-row .icon {
+  color: var(--gold);
+  font-size: 23px;
+}
+
+.contact-row p {
+  color: #c6beb2;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.map-placeholder {
+  min-height: 270px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background:
+    linear-gradient(#100e0bcc,#100e0bcc),
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80') center/cover;
+  padding: 25px;
+}
+
+.map-placeholder h3 {
+  font-family: 'Playfair Display',serif;
+  font-size: 28px;
+  color: var(--gold);
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer {
+  padding: 45px 7% 25px;
+  background: #090806;
+  border-top: 1px solid #493b28;
+  text-align: center;
+}
+
+.footer-brand {
+  color: var(--gold);
+  font-family: 'Playfair Display',serif;
+  font-size: 30px;
+}
+
+footer p {
+  color: #9e968a;
+  font-size: 11px;
+  margin-top: 12px;
+  line-height: 2;
+}
+
+.footer-nav {
+  margin: 23px 0;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.footer-nav button {
+  background: none;
+  border: none;
+  color: #ddd;
+  font-size: 11px;
+}
+
+/* =====================
+   FLOATING CONTACT ICONS
+===================== */
+
+.float-actions {
+  position: fixed;
+  right: 22px;
+  bottom: 25px;
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.float-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 20px #0009;
+  transition: .3s;
+}
+
+.float-btn:hover {
+  transform: scale(1.12);
+}
+
+.float-btn svg {
+  width: 27px;
+  height: 27px;
+  fill: white;
+}
+
+.whatsapp-float {
+  background: #20c768;
+}
+
+.call-float {
+  background: #2478df;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+
+@media(max-width:900px) {
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links button {
+    font-size: 10px;
+  }
+
+  .food-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px) {
+
+  .navbar {
+    min-height: 75px;
+  }
+
+  .brand-name {
+    font-size: 17px;
+  }
+
+  .brand-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-book {
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    padding: 22px;
+    background: #15120e;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links button {
+    text-align: left;
+    padding: 14px 8px;
+    border-bottom: 1px solid #30291e;
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 650px;
+    padding: 65px 7% 150px;
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 53px;
+  }
+
+  .hero-stat {
+    padding: 16px 5px;
+  }
+
+  .hero-stat strong {
+    font-size: 15px;
+  }
+
+  .hero-stat small {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .section {
+    padding: 65px 6%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .about-layout,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image img {
+    height: 320px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-item {
+    height: 190px;
+  }
+
+  .booking-container {
+    padding: 25px 18px;
+  }
+
+  .float-actions {
+    right: 13px;
+    bottom: 17px;
+  }
+
+  .float-btn {
+    width: 49px;
+    height: 49px;
+  }
+}
+
+@media(max-width:420px) {
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .hero-actions .btn {
+    padding: 13px 15px;
+  }
+
+  .gallery-item {
+    height: 155px;
+  }
+
+  .brand-sub {
+    letter-spacing: 2px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <nav class="navbar">
+
+    <div class="brand">
+      <div class="brand-icon"><span>IG</span></div>
+      <div>
+        <div class="brand-name">Ishq E Ghazipur</div>
+        <div class="brand-sub">RESTAURANT & CAFE</div>
+      </div>
+    </div>
+
+    <button class="menu-toggle" onclick="toggleNav()">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <button class="active" data-page="home">HOME</button>
+      <button data-page="menu">OUR MENU</button>
+      <button data-page="gallery">GALLERY</button>
+      <button data-page="about">ABOUT US</button>
+      <button data-page="contact">CONTACT</button>
+    </div>
+
+    <button class="nav-book" onclick="showPage('booking')">
+      BOOK YOUR TABLE
+    </button>
+
+  </nav>
+</header>
+
+
+<!-- =====================
+     HOME PAGE
+===================== -->
+
+<main>
+
+<section class="page active" id="home">
+
+  <div class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">✦ THE ART OF FINE DINING ✦</div>
+
+      <h1>
+        A Taste Of
+        <span>Pure Love.</span>
+      </h1>
+
+      <p>
+        Welcome to Ishq E Ghazipur Restaurant & Cafe.
+        Discover exceptional flavours, elegant ambience
+        and beautiful moments with every visit.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn" onclick="showPage('menu')">
+          EXPLORE OUR MENU →
+        </button>
+
+        <button class="btn btn-outline" onclick="showPage('booking')">
+          BOOK A TABLE
+        </button>
+      </div>
+
+    </div>
+
+    <div class="hero-bottom">
+
+      <div class="hero-stat">
+        <strong>Fresh Food</strong>
+        <small>QUALITY INGREDIENTS</small>
+      </div>
+
+      <div class="hero-stat">
+        <strong>Luxury Dining</strong>
+        <small>BEAUTIFUL AMBIENCE</small>
+      </div>
+
+      <div class="hero-stat">
+        <strong>Great Taste</strong>
+        <small>MEMORABLE MOMENTS</small>
+      </div>
+
+    </div>
+
+  </div>
+
+  <section class="section">
+
+    <div class="section-heading">
+      <small>WHY CHOOSE US</small>
+      <h2>Experience The Difference</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">♨</div>
+        <h3>Freshly Prepared</h3>
+        <p>Enjoy delicious food prepared with care and fresh ingredients.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">✦</div>
+        <h3>Elegant Ambience</h3>
+        <p>A welcoming place for family, friends and special occasions.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">♡</div>
+        <h3>Made With Love</h3>
+        <p>Every visit deserves a wonderful dining experience.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section" style="background:#17140f">
+
+    <div class="section-heading">
+      <small>CHEF'S SELECTION</small>
+      <h2>Explore Our Specialities</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="food-grid" id="featuredMenu"></div>
+
+    <div style="text-align:center;margin-top:40px">
+      <button class="btn" onclick="showPage('menu')">
+        VIEW COMPLETE MENU →
+      </button>
+    </div>
+
+  </section>
+
+</section>
+
+
+<!-- =====================
+     MENU PAGE
+===================== -->
+
+<section class="page" id="menu">
+
+  <section class="section menu-page">
+
+    <div class="section-heading">
+      <small>DISCOVER OUR FLAVOURS</small>
+      <h2>Our Delicious Menu</h2>
+      <div class="gold-line"></div>
+      <p>Explore our selection of delicious dishes.</p>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="active" onclick="filterMenu('All',this)">All Items</button>
+      <button onclick="filterMenu('Pizza',this)">Pizza</button>
+      <button onclick="filterMenu('Burger',this)">Burgers</button>
+      <button onclick="filterMenu('Indian',this)">Indian</button>
+      <button onclick="filterMenu('Drinks',this)">Drinks</button>
+      <button onclick="filterMenu('Dessert',this)">Desserts</button>
+    </div>
+
+    <div class="food-grid" id="fullMenu"></div>
+
+    <p style="text-align:center;color:#888;font-size:11px;margin-top:35px">
+      Demo prices only. Final menu and prices to be confirmed by restaurant management.
+    </p>
+
+  </section>
+
+</section>
+
+
+<!-- =====================
+     GALLERY PAGE
+===================== -->
+
+<section class="page" id="gallery">
+
+  <section class="section">
+
+    <div class="section-heading">
+      <small>VISUAL EXPERIENCES</small>
+      <h2>Our Restaurant Gallery</h2>
+      <div class="gold-line"></div>
+      <p>A glimpse of food, ambience and dining experiences.</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85" alt="Restaurant interior">
+        <div class="gallery-caption">Elegant Interiors</div>
+      </div>
+
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85" alt="Fine dining">
+        <div class="gallery-caption">Fine Dining</div>
+      </div>
+
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=900&q=85" alt="Fresh food">
+        <div class="gallery-caption">Fresh Flavours</div>
+      </div>
+
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85" alt="Cafe interior">
+        <div class="gallery-caption">Cafe Ambience</div>
+      </div>
+
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1568901346375-23c9450c58bd?auto=format&fit=crop&w=900&q=85" alt="Burger">
+        <div class="gallery-caption">Signature Burgers</div>
+      </div>
+
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85" alt="Pizza">
+        <div class="gallery-caption">Delicious Pizza</div>
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
+
+
+<!-- =====================
+     ABOUT PAGE
+===================== -->
+
+<section class="page" id="about">
+
+  <section class="section">
+
+    <div class="about-layout">
+
+      <div class="about-image">
+        <img loading="lazy"
+        src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1100&q=90"
+        alt="Restaurant dining experience">
+      </div>
+
+      <div class="about-content">
+
+        <div class="eyebrow">OUR STORY</div>
+
+        <h2>Where Every Meal Becomes A Memory.</h2>
+
+        <p>
+          Welcome to Ishq E Ghazipur Restaurant & Cafe,
+          a place designed for people who appreciate
+          good food and wonderful company.
+        </p>
+
+        <p>
+          From delicious meals to a welcoming atmosphere,
+          our goal is to make every dining experience special.
+        </p>
+
+        <button class="btn" onclick="showPage('booking')">
+          RESERVE YOUR TABLE
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
+
+
+<!-- =====================
+     BOOKING PAGE
+===================== -->
+
+<section class="page" id="booking">
+
+  <div class="booking-background">
+
+    <div class="booking-container">
+
+      <div class="eyebrow" style="text-align:center">
+        YOUR EXPERIENCE STARTS HERE
+      </div>
+
+      <h2>Book Your Table</h2>
+
+      <p>Fill in your details to request a reservation.</p>
+
+      <form id="bookingForm">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="customerName" placeholder="Your name" required>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="customerPhone" placeholder="Your mobile number" required>
+          </div>
+
+          <div class="form-group">
+            <label>Booking Date *</label>
+            <input type="date" id="bookingDate" required>
+          </div>
+
+          <div class="form-group">
+            <label>Booking Time *</label>
+            <input type="time" id="bookingTime" required>
+          </div>
+
+          <div class="form-group">
+            <label>Number Of Guests *</label>
+            <select id="guestCount" required>
+              <option value="">Select Guests</option>
+              <option>1 Guest</option>
+              <option>2 Guests</option>
+              <option>3 Guests</option>
+              <option>4 Guests</option>
+              <option>5 Guests</option>
+              <option>6 Guests</option>
+              <option>7 Guests</option>
+              <option>8+ Guests</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Occasion</label>
+            <select id="occasion">
+              <option>Regular Dining</option>
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Family Dinner</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label>Special Requests</label>
+            <textarea id="specialRequest" placeholder="Any special requirements?"></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn booking-submit">
+          CONFIRM VIA WHATSAPP →
+        </button>
+
+      </form>
+
+      <p style="margin-top:20px">
+        Reservation is a request until confirmed by restaurant management.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================
+     CONTACT PAGE
+===================== -->
+
+<section class="page" id="contact">
+
+  <section class="section">
+
+    <div class="section-heading">
+      <small>WE WOULD LOVE TO HEAR FROM YOU</small>
+      <h2>Contact Our Restaurant</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+
+        <h3>Get In Touch</h3>
+
+        <div class="contact-row">
+          <div class="icon">📍</div>
+          <p>
+            <strong>Our Location</strong><br>
+            Ghazipur, Uttar Pradesh, India
+          </p>
+        </div>
+
+        <div class="contact-row">
+          <div class="icon">☎</div>
+          <p>
+            <strong>Phone Number</strong><br>
+            <span id="contactPhone">Update restaurant number</span>
+          </p>
+        </div>
+
+        <div class="contact-row">
+          <div class="icon">◷</div>
+          <p>
+            <strong>Opening Hours</strong><br>
+            Please confirm timings with management.
+          </p>
+        </div>
+
+        <br>
+
+        <button class="btn" onclick="callRestaurant()">
+          ☎ CALL RESTAURANT
+        </button>
+
+        <button class="btn btn-outline" style="margin-top:12px"
+        onclick="openWhatsApp('Hello! I would like to contact your restaurant.')">
+          CHAT ON WHATSAPP
+        </button>
+
+      </div>
+
+      <div class="contact-card">
+
+        <div class="map-placeholder">
+          <div>
+            <h3>Ishq E Ghazipur</h3>
+            <p style="color:#ddd;font-size:12px;margin:15px 0">
+              Find our restaurant in Ghazipur.
+            </p>
+            <a class="btn"
+            target="_blank"
+            href="https://www.google.com/maps/search/?api=1&query=Ishq+E+Ghazipur+Restaurant+Cafe">
+              OPEN GOOGLE MAPS →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-brand">Ishq E Ghazipur</div>
+
+  <p>
+    RESTAURANT & CAFE<br>
+    A PLACE FOR GREAT TASTE AND BEAUTIFUL MOMENTS.
+  </p>
+
+  <div class="footer-nav">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('menu')">Menu</button>
+    <button onclick="showPage('gallery')">Gallery</button>
+    <button onclick="showPage('about')">About</button>
+    <button onclick="showPage('contact')">Contact</button>
+  </div>
+
+  <p>
+    © 2026 Ishq E Ghazipur. All Rights Reserved.<br>
+    Website Demo Designed by Krishna.
+  </p>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP AND CALL BUTTONS -->
+
+<div class="float-actions">
+
+  <a href="#" class="float-btn call-float"
+  onclick="callRestaurant();return false;"
+  aria-label="Call Restaurant">
+
+    <svg viewBox="0 0 24 24">
+      <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.56 3.57.56.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.19 2.45.56 3.57a1 1 0 01-.25 1.02l-2.19 2.2z"/>
+    </svg>
+
+  </a>
+
+
+  <a href="#" class="float-btn whatsapp-float"
+  onclick="openWhatsApp('Hello Ishq E Ghazipur Restaurant! I want to know more about your restaurant.');return false;"
+  aria-label="WhatsApp">
+
+    <svg viewBox="0 0 32 32">
+      <path d="M16 3C8.9 3 3.1 8.7 3.1 15.8c0 2.5.7 4.9 2.1 7L3 29l6.4-2.1c2 1.1 4.3 1.7 6.6 1.7h.1c7.1 0 12.9-5.8 12.9-12.9C29 8.6 23.1 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.8-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4a10.5 10.5 0 0 1-1.7-5.8C5.2 9.9 10 5.2 16 5.2c2.8 0 5.5 1.1 7.5 3.1s3.2 4.7 3.2 7.5c0 5.9-4.8 10.6-10.7 10.6zm5.9-7.9c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-1.7-.8-2.9-1.6-4-3.6-.3-.5.3-.5.9-1.8.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 2.9 1.2 3.1.2.2 2.2 3.4 5.4 4.8 2 .9 2.8 1 3.8.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.1-1.4-.1-.2-.3-.3-.6-.5z"/>
+    </svg>
+
+  </a>
+
+</div>
+
+
+<!-- =====================
+     JAVASCRIPT
+===================== -->
+
+<script>
+
+// RESTAURANT CONTACT NUMBER
+// Replace XXXXXXXXXX with the actual 10-digit mobile number.
+
+const restaurantPhone = "XXXXXXXXXX";
+
+// COUNTRY CODE
+const countryCode = "91";
+
+
+// OPEN PAGES
+
+function showPage(pageId) {
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  const selectedPage = document.getElementById(pageId);
+
+  if (selectedPage) {
+    selectedPage.classList.add("active");
+  }
+
+  document.querySelectorAll(".nav-links button").forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.page === pageId
+    );
+  });
+
+  closeNav();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+// NAVIGATION BUTTONS
+
+document.querySelectorAll("[data-page]").forEach(button => {
+
+  button.addEventListener("click", () => {
+    showPage(button.dataset.page);
+  });
+
+});
+
+
+// MOBILE NAVIGATION
+
+function toggleNav() {
+  document.getElementById("navLinks").classList.toggle("open");
+}
+
+function closeNav() {
+  document.getElementById("navLinks").classList.remove("open");
+}
+
+
+// PHONE VALIDATION
+
+function validPhone() {
+
+  if (!/^[0-9]{10}$/.test(restaurantPhone)) {
+
+    alert(
+      "Demo number is not configured. Please add the real restaurant mobile number in the JavaScript section."
+    );
+
+    return false;
+  }
+
+  return true;
+
+}
+
+
+// WHATSAPP FUNCTION
+
+function openWhatsApp(message) {
+
+  if (!validPhone()) return;
+
+  const fullNumber = countryCode + restaurantPhone;
+
+  const url =
+    "https://wa.me/" +
+    fullNumber +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+
+}
+
+
+// CALL FUNCTION
+
+function callRestaurant() {
+
+  if (!validPhone()) return;
+
+  window.location.href =
+    "tel:+" + countryCode + restaurantPhone;
+
+}
+
+
+// FOOD MENU DATA
+
+const foods = [
+
+  {
+    name: "Classic Cheese Burger",
+    category: "Burger",
+    price: 149,
+    description: "A delicious burger with fresh toppings.",
+    image: "photo-1568901346375-23c9450c58bd"
+  },
+
+  {
+    name: "Italian Cheese Pizza",
+    category: "Pizza",
+    price: 249,
+    description: "Cheese loaded pizza with rich flavours.",
+    image: "photo-1565299624946-b28f40a0ae38"
+  },
+
+  {
+    name: "Creamy White Pasta",
+    category: "Indian",
+    price: 179,
+    description: "Creamy pasta with a delicious sauce.",
+    image: "photo-1473093295043-cdd812d0e601"
+  },
+
+  {
+    name: "Special Biryani",
+    category: "Indian",
+    price: 199,
+    description: "Aromatic rice with delicious spices.",
+    image: "photo-1563379091339-03246963d96c"
+  },
+
+  {
+    name: "Fresh Mocktail",
+    category: "Drinks",
+    price: 99,
+    description: "Refreshing drink for a special moment.",
+    image: "photo-1513558161293-cdaf765edfd4"
+  },
+
+  {
+    name: "Chocolate Dessert",
+    category: "Dessert",
+    price: 129,
+    description: "A sweet and delightful dessert.",
+    image: "photo-1563805042-7684c019e1cb"
+  },
+
+  {
+    name: "Grilled Sandwich",
+    category: "Indian",
+    price: 119,
+    description: "Crispy sandwich with tasty fillings.",
+    image: "photo-1528735602780-2552fd46c7af"
+  },
+
+  {
+    name: "Veg Special Pizza",
+    category: "Pizza",
+    price: 229,
+    description: "Fresh vegetables and rich cheese.",
+    image: "photo-1579751626657-72bc17010498"
+  },
+
+  {
+    name: "Fresh Cold Coffee",
+    category: "Drinks",
+    price: 109,
+    description: "Chilled coffee with creamy flavour.",
+    image: "photo-1461023058943-07fcbe16d735"
+  }
+
+];
+
+
+// CREATE FOOD CARDS
+
+function createFoodCard(food) {
+
+  return `
+
+    <div class="food-card">
+
+      <div class="food-image">
+
+        <img
+          loading="lazy"
+          src="https://images.unsplash.com/${food.image}?auto=format&fit=crop&w=800&q=85"
+          alt="${food.name}"
+        >
+
+        <span class="food-label">${food.category}</span>
+
+      </div>
+
+      <div class="food-info">
+
+        <h3>${food.name}</h3>
+
+        <p>${food.description}</p>
+
+        <div class="food-bottom">
+
+          <span class="food-price">₹${food.price}</span>
+
+          <button
+            class="order-btn"
+            onclick="orderFood('${food.name}',${food.price})">
+
+            ORDER NOW
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+// SHOW COMPLETE MENU
+
+function renderMenu(category = "All") {
+
+  const filteredFoods = category === "All"
+    ? foods
+    : foods.filter(food => food.category === category);
+
+  document.getElementById("fullMenu").innerHTML =
+    filteredFoods.map(createFoodCard).join("");
+
+}
+
+
+// SHOW HOME SPECIAL ITEMS
+
+function renderFeatured() {
+
+  document.getElementById("featuredMenu").innerHTML =
+    foods.slice(0,3).map(createFoodCard).join("");
+
+}
+
+
+// FILTER FOOD MENU
+
+function filterMenu(category, button) {
+
+  document.querySelectorAll(".menu-tabs button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+
+  renderMenu(category);
+
+}
+
+
+// ORDER FOOD THROUGH WHATSAPP
+
+function orderFood(name, price) {
+
+  const message =
+    "Hello Ishq E Ghazipur Restaurant! I am interested in ordering: " +
+    name +
+    ". Listed demo price: ₹" +
+    price +
+    ". Please confirm availability and price.";
+
+  openWhatsApp(message);
+
+}
+
+
+// BOOKING FORM
+
+document.getElementById("bookingForm")
+.addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const date =
+    document.getElementById("bookingDate").value;
+
+  const time =
+    document.getElementById("bookingTime").value;
+
+  const guests =
+    document.getElementById("guestCount").value;
+
+  const occasion =
+    document.getElementById("occasion").value;
+
+  const request =
+    document.getElementById("specialRequest").value.trim();
+
+  if (!/^[0-9]{10}$/.test(phone)) {
+    alert("Please enter a valid 10-digit mobile number.");
+    return;
+  }
+
+  if (!validPhone()) return;
+
+  const message =
+
+    "NEW TABLE BOOKING REQUEST\n\n" +
+
+    "Name: " + name + "\n" +
+    "Customer Phone: " + phone + "\n" +
+    "Date: " + date + "\n" +
+    "Time: " + time + "\n" +
+    "Guests: " + guests + "\n" +
+    "Occasion: " + occasion + "\n" +
+    "Special Request: " + (request || "None") +
+
+    "\n\nPlease confirm my reservation.";
+
+  openWhatsApp(message);
+
+});
+
+
+// SET MINIMUM BOOKING DATE
+
+const today = new Date();
+
+const localToday = new Date(
+  today.getTime() - today.getTimezoneOffset() * 60000
+).toISOString().split("T")[0];
+
+document.getElementById("bookingDate").min = localToday;
+
+
+// INITIALIZE WEBSITE
+
+renderMenu();
+renderFeatured();
+
+</script>
+
+</body>
+</html>
